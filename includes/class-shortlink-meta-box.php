@@ -8,6 +8,7 @@ class ShortLinkMetaBox extends Singleton {
         add_action('save_post', [$this, 'save_meta_box']);
     }
 
+    // add meta box for short link
     public function add_meta_box() {
         add_meta_box('short_link_meta', __('Short Link Data', 'short-links'), [$this, 'render_meta_box'], 'short_link');
     }

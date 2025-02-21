@@ -11,6 +11,7 @@ class ShortLinkPostType extends Singleton
         add_action('template_redirect', [$this, 'track_click']);
     }
 
+    // Register custom post
     public function register_post_type()
     {
         register_post_type('short_link', [
@@ -29,6 +30,8 @@ class ShortLinkPostType extends Singleton
         flush_rewrite_rules();
     }
 
+
+    // Add table for plugin
     public function add_columns($columns)
     {
         $columns['click_count'] = __('Click Count', 'short-links');
@@ -68,6 +71,8 @@ class ShortLinkPostType extends Singleton
         }
     }
 
+
+    // click checker
     public function track_click()
     {
         if (is_singular('short_link')) {
